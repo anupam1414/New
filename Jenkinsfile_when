@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout'
+            }
+        }
+        stage('Build') {
+		when {
+		  expression {
+			BRANCH_NAME == 'main'   
+		  }
+		}
+            steps {
+                echo 'Build'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test'
+            }
+        }
+    } 
+	}
+	
